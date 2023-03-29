@@ -1,5 +1,5 @@
 {% set name = "clearml" %}
-{% set version = "1.9.3" %}
+{% set version = "1.10.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/allegroai/clearml/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 429951a9f9c934f01e905d3e3e5ab6f1ccd56b3439065156f1314fbf9bf13db4
+  sha256: 59f0fad12e8339dea1e0de5795f140deffb231be3e0e722c61741465e658b91b
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
@@ -54,7 +54,7 @@ test:
 
 about:
   home: https://github.com/allegroai/clearml
-  summary: 'Auto-Magical CI/CD to streamline your ML workflow. Experiment Manager, MLOps and Data-Management'
+  summary: Auto-Magical CI/CD to streamline your ML workflow. Experiment Manager, MLOps and Data-Management
   description: |
     Auto-Magical CI/CD to streamline your ML workflow.
   license: Apache-2.0
