@@ -1,5 +1,6 @@
 {% set name = "clearml" %}
-{% set version = "1.16.4" %}
+{% set version = "1.16.5" %}
+{% set python_min = "3.9" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +8,10 @@ package:
 
 source:
   url: https://github.com/allegroai/clearml/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: d50bfd3d7bd136917feaf58b2b3e564c553226bca9d4605cf02108d2e61e0295
+  sha256: 202ba02d7d45e3fa15559e17503fe292bbb8307eff4d385ccedf3dce1ecc97b7
 
 build:
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
   noarch: python
   entry_points:
@@ -21,10 +22,11 @@ build:
 
 requirements:
   host:
-    - python
+    - python {{ python_min }}
+    - setuptools
     - pip
   run:
-    - python >3.8
+    - python >={{ python_min }}
     - attrs >=18.0
     - furl >=2.0.0
     - jsonschema >=2.6.0
@@ -34,10 +36,10 @@ requirements:
     - psutil >=3.4.2
     - pyparsing >=2.0.3
     - python-dateutil >=2.6.1
-    - pyjwt >=2.4.0,<2.5.0
+    - pyjwt >=2.4.0,<2.9.0
     - pyyaml >=3.12
     - requests >=2.20.0
-    - six >=1.13.0
+    - six >=1.16.0
     - urllib3 >=1.21.1
 
 test:
@@ -45,6 +47,7 @@ test:
     - clearml
   requires:
     - pip
+    - python {{ python_min }}
   commands:
     - pip check
     - clearml-init --help

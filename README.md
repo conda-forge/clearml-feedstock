@@ -151,4 +151,5 @@ Feedstock Maintainers
 =====================
 
 * [@SimonBoothroyd](https://github.com/SimonBoothroyd/)
+* [@mukhery](https://github.com/mukhery/)
 
