@@ -1,5 +1,5 @@
 {% set name = "clearml" %}
-{% set version = "2.1.3" %}
+{% set version = "2.1.4" %}
 {% set python_min = "3.9" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/allegroai/clearml/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 550784d272a3ff36d5289856a17e3b25c450cdf8d7e4697b7a9f45d242afead5
+  sha256: 6d499f6642b468b6e4c3e8de0832d9f4613dacb72e846ec680abf4f5bb0a1d1f
 
 build:
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
